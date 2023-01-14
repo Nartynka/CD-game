@@ -1,13 +1,13 @@
-extends KinematicBody2D
+extends CharacterBody2D
 class_name Player
 
-export var ACCELERATION = 500
-export var MAX_SPEED = 80
-export var FRICTION = 500
+@export var ACCELERATION = 500
+@export var MAX_SPEED = 80
+@export var FRICTION = 500
 
-var velocity = Vector2.ZERO
+#var velocity = Vector2.ZERO
 
-onready var animatedSprite = $AnimatedSprite
+@onready var animatedSprite = $AnimatedSprite2D
 
 func _physics_process(delta):
 	var input_vector = Vector2.ZERO
@@ -21,4 +21,6 @@ func _physics_process(delta):
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-	velocity = move_and_slide(velocity)
+	set_velocity(velocity)
+	move_and_slide()
+	velocity = velocity

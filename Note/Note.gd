@@ -4,7 +4,7 @@ signal note_collected
 
 func _ready():
 	randomize()
-	$Sprite.frame = rand_range(0, 9)
+	$Sprite2D.frame = randf_range(0, 9)
 
 func _on_Note_body_entered(body):
 	if body is Player:

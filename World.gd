@@ -1,16 +1,20 @@
 extends Node2D
 
-onready var fader = $CanvasLayer/Fader
+@onready var fader = $CanvasLayer/Fader
 #405d80
 func _ready():
-	$YSort/Girl.connect("quest_complete", self, "_on_quest_completed")
-	fader.connect("fade_finished", $YSort/Girl, "start")
+	$Girl.connect("quest_complete",Callable(self,"_on_quest_completed"))
+	fader.connect("fade_finished",Callable($Girl,"start"))
 	fader.fade_in()
 
 func _on_quest_completed():
 	$CanvasModulate.color = Color("ffffff")
+	get_tree().paused = false
 
 func _input(event):
 	if Input.is_action_just_pressed("fullscreen"):
-		OS.window_fullscreen = !OS.window_fullscreen 
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	

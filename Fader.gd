@@ -1,6 +1,6 @@
 extends ColorRect
 
-onready var animationPlayer = $AnimationPlayer
+@onready var animationPlayer = $AnimationPlayer
 
 signal fade_finished
 
