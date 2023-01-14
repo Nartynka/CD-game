@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dv4ub51ck0nra" path="res://Boy/Boy.tscn" id="2"]
 [ext_resource type="PackedScene" uid="uid://28at70r1p2xv" path="res://Girl/Girl.tscn" id="3"]
 [ext_resource type="Script" path="res://World.gd" id="4"]
-[ext_resource type="PackedScene" path="res://Note/Note.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://8111uri7shmf" path="res://Note/Note.tscn" id="5"]
 [ext_resource type="PackedScene" path="res://Fader.tscn" id="6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5e32t"]
